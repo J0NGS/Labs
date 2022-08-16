@@ -21,18 +21,18 @@ using std::stringstream;
 class Lab5 : public Game {
 
 private:
-	int X1, X2;
-	int Y1, Y2;
-	int velX1, velX2;
-	int velY1, velY2;
+	int X1, X2; // coordenadas do ponto x 1 e 2
+	int Y1, Y2; // coordenadas do ponto y 1 e 2
+	int velX1, velX2; // Velocidade de movimento dos pontos x
+	int velY1, velY2; // Velocidade de movimento dos pontos y
 	HDC hdc;
 public:
 	void Init();
 	void Update();
 	void Draw();
-	void Finalize();
-	void TestCollision(int X1, int X2, int Y1, int Y2);
-
+	void Finalize();									
+	void TestCollision(int X1, int X2, int Y1, int Y2); //função para testar colisão
+														
 };
 
 void Lab5::Init() {
@@ -44,8 +44,8 @@ void Lab5::Init() {
 	Y2 = 100;
 	
 	//inicializando velocidade
-	velX1 = 5;
-	velY1 = 5;
+	velX1 = 10;
+	velY1 = 10;
 	velX2 = 5;
 	velY2 = 5;
 
@@ -58,9 +58,11 @@ void Lab5::Update() {
 	Y1 += velY1;
 	X2 += velX2;
 	Y2 += velY2;
+	
 	// teste de colisão
 	TestCollision(X1, X2, Y1, Y2);
-	// movendo ponteiro para posical inicial da linha
+	
+	// Movendo ponto
 	MoveToEx(hdc, X1, Y1, NULL);
 }
 
@@ -75,6 +77,8 @@ void Lab5::Finalize() {
 }
 
 void Lab5::TestCollision(int X1, int X2, int Y1, int Y2) {
+	
+	//teste de colisão para os pontos 1
 	if (X1 > window->Width())
 		velX1 = -velX1;
 
@@ -88,6 +92,7 @@ void Lab5::TestCollision(int X1, int X2, int Y1, int Y2) {
 	if (Y1 < 0)
 		velY1 = -velY1;
 
+	//teste de colisão para os pontos 2
 	if (X2 > window->Width())
 		velX2 = -velX2;
 
