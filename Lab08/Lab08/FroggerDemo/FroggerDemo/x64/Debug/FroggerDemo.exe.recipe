@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab08\Lab08\FroggerDemo\x64\Debug\FroggerDemo.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab08\Lab08\FroggerDemo\FroggerDemo\Shaders\Pixel.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab08\Lab08\FroggerDemo\FroggerDemo\Shaders\Vertex.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
