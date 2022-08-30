@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab09\Lab09\Breakout\x64\Debug\Breakout.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab09\Lab09\Breakout\Breakout\Shaders\Pixel.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab09\Lab09\Breakout\Breakout\Shaders\Vertex.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
