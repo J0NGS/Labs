@@ -13,6 +13,7 @@
 #include "Platformer.h"
 #include "Resources.h"
 
+
 // -----------------------------------------------------------------------------
 
 Scene * Platformer::scene = nullptr;
@@ -27,6 +28,14 @@ void Platformer::Init()
     // pano de fundo do jogo
     backg = new Background();
     scene->Add(backg, STATIC);
+
+    //CRIAR E ADICIONAR PLAYER
+    player = new Player();
+    scene->Add(player, MOVING);
+
+    Platform * plat = new Platform(window->CenterX() + 380, window->CenterY(), LARGE);
+
+    scene->Add(plat, STATIC);
 }
 
 // ------------------------------------------------------------------------------
@@ -39,6 +48,7 @@ void Platformer::Update()
 
     // atualiza cena do jogo
     scene->Update();
+    scene->CollisionDetection();
 } 
 
 // ------------------------------------------------------------------------------
@@ -46,6 +56,7 @@ void Platformer::Update()
 void Platformer::Draw()
 {
     scene->Draw();
+    scene->DrawBBox();
 } 
 
 // ------------------------------------------------------------------------------

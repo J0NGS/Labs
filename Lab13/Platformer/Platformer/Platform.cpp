@@ -15,21 +15,29 @@
 
 Platform::Platform(float posX, float posY, uint platType)
 {
+    platform = new Sprite("Resources/LongGray.png");
     
+    bbox = new Rect(-1.0f * platform->Width() / 2,
+        -1.0f * platform->Height() / 2,
+        +1.0f * platform->Width() / 2,
+        +1.0f * platform->Height() / 2);
+
+    MoveTo(posX, posY);
 }
 
 // ---------------------------------------------------------------------------------
 
 Platform::~Platform()
 {
-    
+    delete platform;
+    delete bbox;
 }
 
 // -------------------------------------------------------------------------------
 
 void Platform::Update()
 {
-    
+    Translate(-200.0f * gameTime, 0);   
 }
 
 // -------------------------------------------------------------------------------

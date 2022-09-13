@@ -29,13 +29,15 @@ class Object
 {
 private:
     float posX, posY, posZ;     // coordenadas do objeto
-    Geometry* bbox;             // bounding box do objeto
+
 
 protected:
     static Window* & window;    // janela do jogo
     static Game* & game;        // jogo em que o objeto está inserido
     static float & gameTime;    // tempo do último quadro
-
+    
+    Geometry* bbox;             // bounding box do objeto
+    
     const float & x = posX;     // coordenada x do objeto
     const float & y = posY;     // coordenada y do objeto
     const float & z = posZ;     // coordenada z do objeto
