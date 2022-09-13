@@ -1,0 +1,20 @@
+﻿  compilation object save succeeded; see E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab10\Collision\Collision\Shaders\Pixel.cso
+  compilation object save succeeded; see E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab10\Collision\Collision\Shaders\Vertex.cso
+  Ball.cpp
+  Block.cpp
+  Breakout.cpp
+  Engine.cpp
+  Game.cpp
+  Geometry.cpp
+  Graphics.cpp
+  Image.cpp
+  Object.cpp
+  Player.cpp
+  Renderer.cpp
+  Scene.cpp
+  Sprite.cpp
+  Texture.cpp
+  Timer.cpp
+  Window.cpp
+  Gerando Código...
+  Collision.vcxproj -> E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab10\Collision\x64\Debug\Collision.exe
