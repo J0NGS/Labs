@@ -81,7 +81,7 @@
     <ClInclude Include="Resources.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Explosion.h">
+    <ClInclude Include="Botafogo.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
@@ -131,7 +131,7 @@
     <ClCompile Include="Window.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Explosion.cpp">
+    <ClCompile Include="Botafogo.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>

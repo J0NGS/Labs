@@ -11,7 +11,7 @@
 
 #include "Engine.h"
 #include "AnimaMax.h"
-#include "Explosion.h"
+#include "Botafogo.h"
 #include "Resources.h"
 
 // -----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ void AnimaMax::Init()
     scene   = new Scene();
     text    = new Sprite("Resources/TextBar.png");
     backg   = new Sprite("Resources/Background.jpg");
-    tileset = new TileSet("Resources/Explosion.png", 192, 192, 5, 25);
+    tileset = new TileSet("Resources/botafogo.png", 192, 192, 5, 10);
     keyCtrl = false;
 }
 
@@ -40,17 +40,17 @@ void AnimaMax::Update()
     // gera explosões de forma contínua com a BARRA DE ESPAÇOS
     if (window->KeyDown(VK_SPACE))
     {
-        Explosion * explo = new Explosion(tileset);
-        explo->MoveTo(randWidth(mt), randHeight(mt));
-        scene->Add(explo, STATIC);
+        Botafogo * bota = new Botafogo(tileset);
+        bota->MoveTo(randWidth(mt), randHeight(mt));
+        scene->Add(bota, STATIC);
     } 
 
     // gera uma explosão com cada pressionamento do ENTER
     if (keyCtrl && window->KeyDown(VK_RETURN))
     {
-        Explosion * explo = new Explosion(tileset);
-        explo->MoveTo(randWidth(mt), randHeight(mt));
-        scene->Add(explo, STATIC);
+        Botafogo * bota = new Botafogo(tileset);
+        bota->MoveTo(randWidth(mt), randHeight(mt));
+        scene->Add(bota, STATIC);
         keyCtrl = false;
     }
     else if (window->KeyUp(VK_RETURN))
