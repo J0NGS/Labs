@@ -45,12 +45,34 @@ Player::~Player()
 
 void Player::OnCollision(Object * obj)
 {
-    // mantém personagem na posição correta em cima da plataforma
+    // mantém personage m na posição correta em cima da plataforma
     if (gravity == NORMAL)
         MoveTo(window->CenterX(), obj->Y() - 32);
     else
         MoveTo(window->CenterX(), obj->Y() + 32);
-    
+
+    // jogador só pode alterar a gravidade enquanto estiver
+    // em cima de uma plataforma, não é possível a mudança no ar
+    if (keyCtrl && window->KeyDown(VK_SPACE))
+    {
+        keyCtrl = false;
+        gravity = !gravity;
+        // tira player da plataforma para evitar 
+        // detecção de colisão no quadro seguinte
+        if (gravity == NORMAL) {
+            Translate(0, 12);
+            anim->Select(NORMAL);
+        }
+        else {
+            Translate(0, -12);
+            anim->Select(INVERTED);
+        }
+    }
+    else if (window->KeyUp(VK_SPACE))
+    {
+        keyCtrl = true;
+    }
+
 }
 
 // ---------------------------------------------------------------------------------
@@ -65,23 +87,7 @@ void Player::Update()
     else
         Translate(0, -300 * gameTime);
 
-    // jogador só pode alterar a gravidade enquanto estiver
-    // em cima de uma plataforma, não é possível a mudança no ar
-    if (keyCtrl && window->KeyDown(VK_SPACE))
-    {
-        keyCtrl = false;
-        gravity = !gravity;
-        // tira player da plataforma para evitar 
-        // detecção de colisão no quadro seguinte
-        if (gravity == NORMAL)
-            Translate(0, 12);
-        else
-            Translate(0, -12);
-    }
-    else if (window->KeyUp(VK_SPACE))
-    {
-        keyCtrl = true;
-    }
+
    
 }
 

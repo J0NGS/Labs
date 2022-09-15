@@ -36,6 +36,18 @@ void Platformer::Init()
     Platform * plat = new Platform(window->CenterX() + 380, window->CenterY(), LARGE);
 
     scene->Add(plat, STATIC);
+
+    Platform* plat2 = new Platform(window->CenterX() + 600, (window->CenterY() -100), LARGE);
+
+    scene->Add(plat2, STATIC);
+
+    Platform* plat3 = new Platform(window->CenterX() + 900, (window->CenterY()), LARGE);
+
+    scene->Add(plat3, STATIC);
+
+    Platform* plat4 = new Platform(window->CenterX() + 1200, (window->CenterY() - 100), LARGE);
+
+    scene->Add(plat4, STATIC);
 }
 
 // ------------------------------------------------------------------------------
