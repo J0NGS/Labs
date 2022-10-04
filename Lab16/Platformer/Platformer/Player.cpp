@@ -11,6 +11,8 @@
 
 #include "Player.h"
 #include "Platformer.h"
+#include <sstream>
+using namespace std;
 
 // ---------------------------------------------------------------------------------
 
@@ -18,7 +20,7 @@ Player::Player()
 {
     tileset = new TileSet("Resources/GravityGuy.png", 32, 48, 5, 10);
     anim = new Animation(tileset, 0.120f, true);
-
+	freq = 1.0f;
     // sequências de animação do player
     uint invert[4] = {6,7,8,9};
     uint normal[4] = {1,2,3,4};
@@ -92,11 +94,26 @@ void Player::Update()
     // ----------------------------------------------------
     // ação da gravidade sobre o personagem
     // ----------------------------------------------------
-    if (gravity == NORMAL)    
+	if (gravity == NORMAL) {
         Translate(0, 300 * gameTime);
-    else
+		// incremento da frequência
+		if (freq < 1.10000) {
+			freq += 0.20f * gameTime;
+			// atualização da frequência
+			Platformer::audio->Frequency(MUSIC, freq);
+		}
+		
+	}
+	else {
         Translate(0, -300 * gameTime);
-
+		if (freq > 0.90000 ) {
+			freq -= 0.20f * gameTime;
+			Platformer::audio->Frequency(MUSIC, freq);
+		}
+	}
+	stringstream s;
+	s << "Freq - " << freq << endl;
+	OutputDebugString(s.str().c_str());
     // atualiza animação
     anim->Select(gravity);
     anim->NextFrame();

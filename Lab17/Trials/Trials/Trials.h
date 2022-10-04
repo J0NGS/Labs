@@ -35,6 +35,10 @@ class Trials : public Game
 private:
     static const int MaxItens = 6;    // número de itens do menu
 
+	Item* selected = nullptr;		  // item selecionado
+	bool editMode = false;			  // jogo em modo de edição
+	bool followMode = false;		  // item em modo seguidor
+
     Scene  * scene = nullptr;         // cena do jogo
     Audio  * audio = nullptr;         // sistema de áudio
     Sprite * backg = nullptr;         // plano de fundo

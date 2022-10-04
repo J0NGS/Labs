@@ -2,7 +2,7 @@
 // Trials (Código Fonte)
 // 
 // Criação:     14 Mai 2012
-// Atualização: 22 Set 2021
+// Atualização: 27 Set 2022
 // Compilador:  Visual C++ 2019
 //
 // Descrição:   Exemplo de interface com menus
@@ -50,7 +50,6 @@ void Trials::Init()
 }
 
 // ------------------------------------------------------------------------------
-
 void Trials::Update()
 {
     // fecha a janela ao pressionar ESC
@@ -59,34 +58,70 @@ void Trials::Update()
 
     // atualiza objeto mouse
     mouse->Update();
+	if (followMode)
+	{
+		// move item selecionado com o mouse
+		selected->MoveTo(window->MouseX(), window->MouseY());
+		// solta item e sai do modo de posicionamento
+		if (mouse->Clicked())
+			followMode = false;
+	}
+	else
+	{
+		// destaca item selecionado
+		for (int i = 0; i < MaxItens; ++i)
+		{
+			if (scene->Collision(mouse, menu[i]))
+			{
 
-    // destaca item selecionado
-    for (int i = 0; i < MaxItens; ++i)
-    {
-        if (scene->Collision(mouse, menu[i]))
-        {
-            menu[i]->Select();
+				menu[i]->Select();
 
-            if (mouse->Clicked())
-            {
-                switch (menu[i]->Type())
-                {
-                case SINGLE:
-                case MULTI:
-                case TRACKS:
-                case LEADERBOARD:
-                case OPTIONS: break;
-                case EXIT: window->Close(); break;
-                }
-            }
-        }
-        else
-        {
-            menu[i]->UnSelect();
-        }
+				selected = menu[i];
 
-        menu[i]->Update();
-    }
+				// ----- modifique o código aqui -----
+				// Detectando entrada no modo de edição
+				// e colocando jogo em modo seguidor para arrastar
+				// os objetos pela tela.
+				if (editMode) {
+					if (mouse->Clicked())
+					{
+						switch (menu[i]->Type())
+						{
+							case SINGLE:		followMode = true; break;
+							case MULTI:			followMode = true; break;
+							case TRACKS:		followMode = true; break;
+							case LEADERBOARD:   followMode = true; break;
+							case OPTIONS:		followMode = true; break;
+							case EXIT:			followMode = true; break;
+						}
+					}
+				}
+
+				if (mouse->Clicked())
+				{
+					switch (menu[i]->Type())
+					{
+						case SINGLE:
+						case MULTI:
+						case TRACKS:
+						case LEADERBOARD:
+						case OPTIONS: break;
+						case EXIT: window->Close(); break;
+					}
+				}
+			}
+			else
+			{
+				menu[i]->UnSelect();
+			}
+
+			menu[i]->Update();
+		}
+	}
+
+	// habilita/desabilita modo de edição
+	if (window->KeyPress('E'))
+		editMode = !editMode;
 
     // habilita/desabilita bounding box
     if (window->KeyPress('B'))
@@ -132,7 +167,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(800, 600);
+    engine->window->Size(1920, 1080);
     engine->window->Color(0, 0, 0);
     engine->window->Title("Trials");
     engine->window->Icon(IDI_ICON);

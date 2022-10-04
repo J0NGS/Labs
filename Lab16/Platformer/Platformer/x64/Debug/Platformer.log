@@ -1,0 +1,24 @@
+﻿  compilation object save succeeded; see E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab16\Platformer\Platformer\Shaders\Pixel.cso
+  compilation object save succeeded; see E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab16\Platformer\Platformer\Shaders\Vertex.cso
+  Animation.cpp
+  Audio.cpp
+  Background.cpp
+  Engine.cpp
+  Game.cpp
+  Geometry.cpp
+  Graphics.cpp
+  Image.cpp
+  Object.cpp
+  Platform.cpp
+  Platformer.cpp
+  Player.cpp
+  Renderer.cpp
+  Scene.cpp
+  Sound.cpp
+  Sprite.cpp
+  Texture.cpp
+  TileSet.cpp
+  Timer.cpp
+  Window.cpp
+  Gerando Código...
+  Platformer.vcxproj -> E:\Documentos\UFERSA\Disciplinas\Jogos\Labs\Lab16\Platformer\x64\Debug\Platformer.exe
