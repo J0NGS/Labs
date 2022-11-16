@@ -65,7 +65,7 @@ void Jump::Update()
             if (jumpTimer.Elapsed(1.0f))
             {
                 // descida
-                velY = 100.0f;
+                velY += 15;
 
             }
             else

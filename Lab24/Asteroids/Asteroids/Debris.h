@@ -18,14 +18,25 @@
 #include "Types.h"                          // tipos específicos da engine
 #include "Object.h"                         // objetos do jogo
 #include "Animation.h"                      // animação de sprites
+#include "Particles.h"                      // animação de sprites
 
+#include <random>
+using std::random_device;
+using std::mt19937;
+using Rnd = std::uniform_real_distribution<float>;
 // ---------------------------------------------------------------------------------
 
 class Debris : public Object
 {
 private:
-    Animation * anim;                       // animação
-
+    Particles * RockGen;                    // animação
+    Animation* anim;
+    TileSet* tileset;
+    random_device rd;                       // gerador de número aleatório
+    mt19937 mt{ rd() };                     // gerador mersenne twister
+    Rnd RandAngle{ 0.0f, 359.0f };          // ângulo aleatório
+    Rnd RandParticles{ 90.0f, 180.0f };      // ângulo aleatório
+    
 public:
     Debris(float posX, float posY);         // construtor
     ~Debris();                              // destrutor
@@ -38,7 +49,8 @@ public:
 // Função Membro Inline
 
 inline void Debris::Draw()
-{ anim->Draw(x, y, Layer::MIDDLE); }
+{ RockGen->Draw(Layer::MIDDLE);
+}
 
 // ---------------------------------------------------------------------------------
 

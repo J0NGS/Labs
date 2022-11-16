@@ -20,12 +20,12 @@ Fireworks::Fireworks()
     Generator starmaker;
     starmaker.imgFile = "Resources/Star.png";   // arquivo de imagem
     starmaker.angle = RandAngle(mt);            // direção das estrelas
-    starmaker.spread = 360.0f;                  // espalhamento em graus
-    starmaker.lifetime = 2.0f;                  // tempo de vida (em segundos)
+    starmaker.spread = 13;                      // espalhamento em graus
+    starmaker.lifetime = 1.2f;                  // tempo de vida (em segundos)
     starmaker.frequency = 0.000f;               // tempo entre geração de novas partículas
     starmaker.percentToDim = 0.6f;              // desaparece após 60% da vida
-    starmaker.minSpeed = 25.0f;                 // velocidade mínima das partículas
-    starmaker.maxSpeed = 250.0f;                // velocidade máxima das partículas
+    starmaker.minSpeed = 280.0f;                // velocidade mínima das partículas
+    starmaker.maxSpeed = 350.0f;                // velocidade máxima das partículas
     starmaker.color.r = RandColor(mt);          // cor aleatória para partícula
     starmaker.color.g = RandColor(mt);          // cor aleatória para partícula
     starmaker.color.b = RandColor(mt);          // cor aleatória para partícula

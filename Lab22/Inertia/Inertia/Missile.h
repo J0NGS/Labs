@@ -26,7 +26,12 @@ class Missile : public Object
 private:
     Sprite * sprite;                            // sprite do míssil
     Vector   speed;                             // velocidade do míssil
-    
+    Vector   Rup;                               // vetor para rebater o missel
+    Vector   Rdown;                             // vetor para rebater o missel
+    Vector   Rleft;                             // vetor para rebater o missel
+    Vector   Rright;                            // vetor para rebater o missel
+    bool     Rebound;                           // variavel que controla se o missel foi rebatido
+
 public:
     Missile(Ship * ship);                       // construtor
     ~Missile();                                 // destrutor

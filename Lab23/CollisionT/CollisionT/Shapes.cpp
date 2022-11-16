@@ -151,7 +151,13 @@ Dot::~Dot()
 Bolt::Bolt()
 {
     sprite = new Sprite("Resources/Bolt.png");
-    BBox(new Rect(-29, -42, 35, 48));
+    Point vertex[7] =
+    {
+       Point(-29, 4),Point(-10, -42),Point(35, -42),
+       Point(5, -10),Point(30, -10),Point(-24, 48),
+       Point(-10, 4)
+    };
+    BBox(new Poly(vertex, 7));
     MoveTo(726, 380);
     type = BOLT;
 }
