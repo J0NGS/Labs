@@ -54,6 +54,13 @@ void Green::OnCollision(Object * obj)
         RunDemo::scene->Delete(this, MOVING);
         RunDemo::audio->Play(EXPLODE);
     }
+    else if (obj->Type() == GREEN)
+    {
+        Vector target = Vector(Line::Angle(Point(x, y), Point(obj->X(), obj->Y())), 20.0f * gameTime);
+        target.Rotate(180.0f);
+        target.ScaleTo(100.0f * gameTime);
+        speed.Add(target);
+    }
 }
 
 // -------------------------------------------------------------------------------
